@@ -1,14 +1,14 @@
 var gcloud = require('gcloud');
 var path = require('path');
 
-module.exports {
-  add,
-  remove,
-  exists
-}
+module.exports = {
+  add
+};
 
-function add()
+function add(domain)
 {
+
+  console.log('DOMNAIN', domain);
 
   var dns = gcloud.dns({
     projectId: 'mcgg-1329',
@@ -17,16 +17,26 @@ function add()
 
   var zone = dns.zone('mcgg');
 
-  var aRecord = zone.record('a', {
-    ttl: 86400,
-    name: 'test.',
+  var aRecord = zone.record('A', {
+    ttl: 3600,
+    name: domain + '.mc.gg.',
     data: '8.8.8.8'
   });
 
-  zone.addRecord(aRecord, function(err, change) {
-    console.log(err);
-    console.log('=======');
-    console.log(change);
+  var srvRecord = zone.record('SRV', {
+    ttl: 3600,
+    name: '_minecraft._tcp.' + domain + '.mc.gg.',
+    data: '0 5 25565 ' + domain + '.mc.gg.'
   });
+
+  zone.addRecords([aRecord, srvRecord],
+    function(err, change)
+    {
+      console.log('error', err);
+      console.log(change);
+    }
+  );
+
+  console.log(aRecord);
 
 }

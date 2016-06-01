@@ -1,7 +1,7 @@
 var db = require('../db');
 var swiftping = require('../helpers/swiftping');
 var Joi = require('joi');
-var gcloud = require('../services/gcloud');
+var gdns = require('../services/gdns');
 
 module.exports = {
   createDomain,
@@ -27,7 +27,7 @@ function createDomain(req, res)
   }
 
   Joi.validate(req.body.domain, domainSchema,
-    function (err, value) {
+    function (err, domain) {
       if (err)
       {
         swiftping.log('error', 'createDomain', 'Domain has invalid format.');
@@ -41,6 +41,8 @@ function createDomain(req, res)
           {
             return swiftping.apiResponse('error', res, {code: 'server_error', message: 'Could not create domain.'});
           }
+
+          gdns.add(domain);
           return swiftping.apiResponse('ok', res, doc);
         }
       );
