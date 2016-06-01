@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+public/vendor/
+public/css/base.css
+public/js/
+public/app/index.jade
+public/app/sandbox-templates.js
+config.js

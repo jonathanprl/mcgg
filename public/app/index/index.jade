@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    base(href="/")
+    title Sandbox  
+      
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(charset="utf-8")
+    meta(name="description" content="Description.")
+    meta(name="keywords" content="keywords")
+    
+    link(href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,300" rel="stylesheet" type="text/css")
+    link(rel="stylesheet", href="/vendor/font-awesome/css/font-awesome.min.css")
+    //- inject:css
+    //- endinject
+    
+  body(ng-app="app" ng-controller="NavbarController as vm")
+    .wrapper
+      header(ng-include="'/views/navbar/navbar'")
+      section#main(ng-view)
+    footer
+      .container
+        .sp__footer
+          .row
+            .col-sm-6
+              ul
+                li
+                  a(title="About" href="/about") About Us
+                li
+                  a(title="Privacy policy" href="/privacy") Privacy
+            .col-sm-6.text-right
+              ul
+                li &copy; Swiftping 2016
+    
+    //- app:js
+
+    //- endinject

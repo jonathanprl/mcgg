@@ -1,0 +1,19 @@
+{
+  "name": "mcgg",
+  "version": "0.0.0",
+  "authors": [
+    "Jonathan Lambert <jonathan@swiftping.co.uk>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.4",
+    "angular-route": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.1"
+  }
+}
