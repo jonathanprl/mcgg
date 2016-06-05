@@ -9,5 +9,7 @@
 
     var vm = this;
 
+    vm.amount = 5;
+
   }
 })();

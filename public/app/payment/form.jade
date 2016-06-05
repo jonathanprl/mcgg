@@ -1,0 +1,5 @@
+form(id="checkout" method="post" action="/api/payment/checkout")
+  div(id="payment-form")
+  input(type="hidden" name="redirect" value="{{ redirect }}")
+  input(type="hidden" name="amount" value="{{ amount }}")
+  input(type="submit" value="{{ buttonText }}")

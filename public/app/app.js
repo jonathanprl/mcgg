@@ -1,5 +1,5 @@
 angular
-  .module('app', ['sandbox-templates', 'ngRoute'])
+  .module('app', ['mcgg-templates', 'ngRoute'])
   .config(['$routeProvider', '$locationProvider', app])
   .run([run]);
 
@@ -18,6 +18,10 @@ function app($routeProvider, $locationProvider)
     .when('/users', {
       templateUrl: '/views/user/user',
       controller: 'UserController as vm'
+    })
+    .when('/payment/checkout', {
+      templateUrl: '/views/payment/checkout',
+      controller: 'CheckoutController as vm'
     })
     .otherwise({
       templateUrl: '/views/home/home',

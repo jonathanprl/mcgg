@@ -1,5 +1,6 @@
 var users = require('./controllers/users');
-var domains = require('./controllers/domains')
+var domains = require('./controllers/domains');
+var payment = require('./controllers/payment');
 var swiftping = require('./helpers/swiftping');
 
 module.exports = function(app)
@@ -22,6 +23,9 @@ module.exports = function(app)
 
   app.get('/api/domains', domains.getDomain);
   app.post('/api/domains', domains.createDomain);
+
+  app.get('/api/payment/token', payment.getToken);
+  app.post('/api/payment/checkout', payment.postCheckout);
 
   app.get('/views/*', function(req, res)
   {

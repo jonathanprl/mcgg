@@ -2,7 +2,7 @@ var db = require('../db');
 
 module.exports = {
   apiResponse,
-  log
+  logger
 };
 
 function apiResponse(type, res, data, code)
@@ -19,9 +19,9 @@ function apiResponse(type, res, data, code)
   }
 }
 
-function log(type, subject, message)
+function logger(type, subject, message, data)
 {
-  console.log('[' + type.toUpperCase() + ']', subject, '-', message);
+  console.log('[' + type.toUpperCase() + ']', subject, '-', message, data);
 }
 
 function isNumeric(n)

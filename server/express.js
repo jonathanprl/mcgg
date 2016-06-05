@@ -9,6 +9,7 @@ var path = require('path');
 
 app.set('views', path.normalize(__dirname + '/../public/app'));
 app.set('view engine', 'jade');
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.normalize(__dirname + '/../public')));
 

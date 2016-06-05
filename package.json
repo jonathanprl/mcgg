@@ -31,7 +31,8 @@
     "stream-series": "^0.1.1"
   },
   "dependencies": {
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.15.1",
+    "braintree": "^1.39.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.3",
     "gcloud": "^0.34.0",
